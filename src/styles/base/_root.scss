@@ -1,0 +1,21 @@
+:root {
+    --ff-primary: var(--imported_ff-primary, #{$ff-primary});
+    --ff-secondary: var(--imported_ff-secondary, #{$ff-secondary});
+    --ff-tertiary: var(--imported_ff-tertiary, #{$ff-tertiary});
+    --ff-base: var(--imported_ff-base, #{$ff-base});
+
+    --clr-text: var(--imported_clr-text, #{$clr-text});
+    --clr-white: var(--imported_clr-white, #{$clr-white});
+    --clr-grey-faint: var(--imported_clr-grey-faint, #{$clr-grey-faint});
+    --clr-grey-light: var(--imported_clr-grey-light, #{$clr-grey-light});
+    --clr-primary: var(--imported_clr-primary, #{$clr-primary});
+    --clr-text-medium: var(--imported_clr-text-medium, #{$clr-text-medium});
+    --clr-success: var(--imported_clr-success, #{$clr-success});
+    --clr-failure: var(--imported_clr-failure, #{$clr-failure});
+
+    --hover-clr: var(--imported_hover-clr, #{$hover-clr});
+    --box-shadow: var(--imported_box-shadow, #{$box-shadow});
+
+    --container-width: var(--imported_container-width, #{$container-width});
+    --container-margin: var(--imported_container-margin, #{$container-margin});
+}

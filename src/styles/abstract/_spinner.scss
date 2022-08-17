@@ -1,0 +1,8 @@
+.Spinner {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 5px solid var(--clr-grey-faint);
+    border-top: 5px solid var(--clr-primary);
+    animation: spin 2s linear infinite;
+}

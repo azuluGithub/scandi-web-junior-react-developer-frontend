@@ -1,0 +1,15 @@
+@mixin button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--button-clr);
+    background-color: var(--button-background);
+    font-family: var(--ff-primary);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: var(--button-padding);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
