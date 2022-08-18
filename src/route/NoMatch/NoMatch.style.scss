@@ -1,0 +1,44 @@
+.NoMatch {
+    background-color: var(--clr-white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-Container {
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-Header {
+        color: var(--clr-primary);
+        font-family: var(--ff-primary);
+        font-style: normal;
+        font-size: 4rem;
+    }
+
+    &-Subtitle {
+        font-family: var(--ff-secondary);
+        font-style: normal;
+        font-weight: 600;
+        color: var(--clr-primary);
+        font-size: 1.2rem;
+        margin-top: 1.3rem;
+        margin-bottom: 2.6rem;
+    }
+
+    &-Button {
+
+        &:hover {
+            filter: opacity(0.5);
+        }
+    }
+}
