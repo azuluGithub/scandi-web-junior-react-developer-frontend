@@ -21,7 +21,6 @@ const resolveChildren = (children) => {
 }
 
 const handleBody = (arrayOfFields, type) => {
-  
   const body = arrayOfFields.map((field) => {
     const { name } = field;
     const fieldName = setFieldParams(name, type);

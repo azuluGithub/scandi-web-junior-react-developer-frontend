@@ -1,4 +1,4 @@
-import BrowserDatabase from '../../util/BrowserDatabase/BrowserDatabase';
+import BrowserDatabase from 'Util/BrowserDatabase/BrowserDatabase';
 import { CATEGORIES_TYPE } from './Category.action';
 
 const getCategories = () => {

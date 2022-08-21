@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import NoMatchComponent from './NoMatch.component';
-import { routeAction } from '../../store/Route/Route.action';
+import { routeAction } from 'Store/Route/Route.action';
 import { NOMATCH, NOMATCH_ROUTE } from './NoMatch.config';
 
 const mapStateToProps = (state) => ({});
@@ -23,13 +23,13 @@ class NoMatch extends PureComponent {
     }
 
     setCurrentPath() {
-        const { routeAction } = this.props;
+        const { setCurrentRoute } = this;
 
         const currentRoute = {
             name: NOMATCH,
             path: NOMATCH_ROUTE,
         };
-        routeAction(currentRoute);
+        setCurrentRoute(currentRoute);
     }
 
     setCurrentRoute(route) {

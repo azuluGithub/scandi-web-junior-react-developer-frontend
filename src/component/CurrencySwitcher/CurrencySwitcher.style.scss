@@ -1,0 +1,59 @@
+$currency-switcher-list-width: 7.125rem;
+
+.CurrencySwitcher {
+    cursor: pointer;
+    margin-right: 1.75rem;
+    position: relative;
+
+    &:hover &-SelectedCurrencyArrow {
+        transform: rotate(270deg);
+        animation: rotateIcon  200ms ease forwards;
+    }
+
+    &-SelectedCurrencyArrow {
+        transform: rotate(90deg);
+    }
+
+    &:hover &-List {
+        display: block;
+    }
+
+    &-SelectedCurrency {
+        font-family: var(--ff-primary);
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: var(--clr-text);
+        display: flex;
+    }
+
+    &-SelectedCurrencySymbol {
+        margin-right: 0.625rem;
+    }
+
+    &-List {
+        display: none;
+        position: absolute;
+        top: -0.625rem;
+        transform: translateY(1.875rem);
+        background-color: var(--clr-white);
+        width: $currency-switcher-list-width;
+        box-shadow: var(--box-shadow);
+    }
+
+    &-Item {
+        font-family: var(--ff-primary);
+        font-style: normal;
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: var(--clr-text);
+        padding: 1rem;
+
+        &_Selected {
+            background-color: var(--hover-clr);
+        }
+
+        &:hover {
+            background-color: var(--clr-grey-faint);
+        }
+    }
+}

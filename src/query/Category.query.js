@@ -1,4 +1,4 @@
-import Field from '../util/Query/Field';
+import Field from 'Util/Query/Field';
 
 class CategoryQuery {
   _toInstance(name) {

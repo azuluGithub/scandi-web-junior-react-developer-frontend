@@ -1,0 +1,90 @@
+$cart-list-max-height: 13.75rem;
+$cart-overlay-width: 20.3125rem;
+$cart-overlay-max-height: 25rem;
+
+.CartOverlay {
+    overflow: hidden;
+    padding: 2rem 1rem;
+    width: $cart-overlay-width;
+    max-height: $cart-overlay-max-height;
+    background-color: var(--clr-white);
+    box-shadow: var(--box-shadow);
+    transform: translate(calc(-100% + 2.5rem));
+
+    &-NoItems {
+        font-family: var(--ff-primary);
+        text-transform: uppercase;
+        color: var(--clr-text);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    &-Heading {
+        margin-bottom: 1.6rem;
+    }
+
+    &-Title {
+        font-family: var(--ff-primary);
+        color: var(--clr-text);
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.625rem;
+    }
+
+    &-CartTotal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
+    }
+
+    &-CartTotalKey {
+        color: var(--clr-text);
+        font-family: var(--ff-tertiary);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.125rem;
+    }
+
+    &-CartList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-height: $cart-list-max-height;
+        overflow-y: scroll;
+    }
+
+    &-CartTotalValue {
+        color: var(--clr-text);
+        font-family: var(--ff-primary);
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.625rem;
+    }
+
+    &-Buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-View {
+        color: var(--clr-text) !important;
+        background-color: var(--clr-white) !important;
+        border: 1px solid var(--clr-text) !important;
+
+        &:hover {
+            filter: opacity(0.5);
+        }
+    }
+
+    &-Checkout {
+        color: var(--clr-white) !important;
+
+        &:hover {
+            filter: opacity(0.5);
+        }
+    }
+}

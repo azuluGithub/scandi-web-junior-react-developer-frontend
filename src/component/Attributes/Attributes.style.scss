@@ -1,0 +1,33 @@
+.Attributes {
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+
+    &_isSmall {
+        margin-top: 0;
+        margin-bottom: 0.625rem;
+    }
+
+    &-Name {
+        font-family: var(--ff-secondary);
+        text-transform: uppercase;
+        color: var(--clr-text);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.125rem;
+        line-height: 1.125rem;
+        margin-top: 0.4375rem;
+        margin-bottom: 0.4375rem;
+
+        &_isSmall {
+            font-weight: 400;
+            font-size: 0.6875rem;
+            line-height: 1rem;
+        }
+    }
+
+    &-Container {
+        display: flex;
+        align-items: center;
+    }
+
+}

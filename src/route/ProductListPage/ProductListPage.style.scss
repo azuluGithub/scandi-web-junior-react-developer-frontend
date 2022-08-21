@@ -1,0 +1,48 @@
+.ProductListPage {
+    &-TitleWrapper{
+        padding-top: 5rem;
+        padding-bottom: 3.4375rem;
+    }
+
+    &-Title {
+        font-family: var(--ff-primary);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 2.625rem;
+        color: var(--clr-text);
+        text-transform: capitalize;
+    }
+
+    &-TitleSkeleton {
+        width: 5rem;
+        height: 2.5rem;
+        background-color: var(--clr-grey-light);
+        animation: skeleton ease 500ms infinite alternate;
+    }
+
+    &-List {
+        display: grid;
+        gap: 3.125rem;
+        grid-template-columns: repeat(auto-fit, minmax(20.625rem, 1fr));
+        margin-bottom: 3.125rem;
+        transition: all 1s linear;
+    }
+
+    &-CardContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-CardContainerSkeleton {
+        height: 23.75rem;
+        background-color: var(--clr-grey-light);
+        animation: skeleton ease 500ms infinite alternate;
+    }
+}
+
+@keyframes skeleton {
+    to {
+        opacity: 0.5;
+    }
+}

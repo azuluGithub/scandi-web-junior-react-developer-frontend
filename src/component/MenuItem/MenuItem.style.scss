@@ -1,0 +1,20 @@
+.ListItem {
+    cursor: pointer;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: var(--ff-primary);
+    font-style: normal;
+    color: var(--clr-text);
+    margin-right: 2rem;
+    height: calc(100% - 0.25rem);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--clr-white);
+
+    &_isActive {
+        border-bottom: 2px solid var(--clr-primary);
+    }
+}

@@ -1,0 +1,30 @@
+$product-action-button-width: 18.25rem;
+$product-action-button-height: 3.25rem;
+
+.ProductActions {
+    padding: 1.25rem;
+    flex: 1;
+
+    &-Attributes {
+        margin-top: 1.875rem;
+        margin-bottom: 1.875rem;
+    }
+
+    &-Description {
+        margin-top: 2.5rem;
+        font-family: var(--ff-tertiary);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        color: var(--clr-text);
+    }
+
+    &-Button {
+        width: $product-action-button-width;
+        height: $product-action-button-height;
+
+        &:hover {
+            filter: opacity(0.5);
+        }
+    }
+}

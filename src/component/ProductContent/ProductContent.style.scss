@@ -1,0 +1,63 @@
+.ProductContent {
+    &-Brand {
+        font-family: var(--ff-primary);
+        font-style: normal;
+        text-transform: capitalize;
+        color: var(--clr-text);
+        font-weight: 600;
+        font-size: 1.875rem;
+        line-height: 1.6875rem;
+        padding-bottom: 1rem;
+
+        &_isSmall {
+            font-family: var(--ff-primary);
+            font-style: normal;
+            text-transform: capitalize;
+            color: var(--clr-text);
+            font-weight: 300;
+            font-size: 1rem;
+            padding-bottom: 0;
+        }
+    }
+
+    &-Name {
+        font-family: var(--ff-primary);
+        font-style: normal;
+        font-weight: 400;
+        text-transform: capitalize;
+        color: var(--clr-text);
+        font-size: 1.875rem;
+        line-height: 1.6875rem;
+        padding-bottom: 1.25rem;
+
+        &_isSmall {
+            font-family: var(--ff-primary);
+            font-style: normal;
+            text-transform: capitalize;
+            color: var(--clr-text);
+            font-weight: 300;
+            font-size: 1rem;
+            padding-bottom: 0;
+        }
+    }
+
+    &-Price {
+        font-family: var(--ff-primary);
+        font-style: normal;
+        color: var(--clr-text);
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+
+        &_isSmall {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+    }
+
+    &-PriceSymbol {
+        margin-right: 0.3125rem;
+    }
+}

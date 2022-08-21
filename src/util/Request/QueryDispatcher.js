@@ -1,8 +1,7 @@
-import { prepareQuery } from '../../util/Query/PrepareDocument';
-import { executeGet } from '../../util/Request/Request';
+import { prepareQuery } from 'Util/Query/PrepareDocument';
+import { executeGet } from 'Util/Request/Request';
 
 class QueryDispatcher {
-
   requestData(dispatch, args = {}) {
     const reqRes = this.prepareRequest(args);
     const queryRes = prepareQuery(reqRes, args);

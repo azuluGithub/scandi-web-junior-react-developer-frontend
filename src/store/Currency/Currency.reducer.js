@@ -1,5 +1,5 @@
 import { CURRENCIES_TYPE, SELECTED_CURRENCY_TYPE } from './Currency.action';
-import BrowserDatabase from '../../util/BrowserDatabase/BrowserDatabase';
+import BrowserDatabase from 'Util/BrowserDatabase/BrowserDatabase';
 
 const getCurrencies = () => {
   const currencies = BrowserDatabase.getItem('currencies');

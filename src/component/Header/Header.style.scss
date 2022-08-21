@@ -1,0 +1,87 @@
+:root {
+    --header-height: 5rem;
+    --header-logo-width: 2.5rem;
+    --header-logo-height: 2.5rem;
+}
+
+.Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    height: var(--header-height);
+    background-color: var(--clr-white);
+
+    &-Wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        height: 100%;
+        width: var(--container-width);
+    }
+
+    &-OverlayWrapper {
+        cursor: pointer;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        z-index: 15;
+        height: calc(100vh - var(--header-height));
+        background-color: rgba($color: #000000, $alpha: 0.2);
+    }
+
+    &-NavItems {
+        display: flex;
+    }
+
+    &-Logo {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: var(--header-logo-width);
+        height: var(--header-logo-height);
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &-CartButton {
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+    }
+
+    &-CartCount {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.8rem;
+        height: 1.25rem;
+        width: 1.25rem;
+        border-radius: 50%;
+        color: var(--clr-white);
+        background-color: var(--clr-text);
+        font-family: var(--ff-tertiary);
+        font-size: 0.875rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-CartOverlay {
+        position: absolute;
+        top: 100%;
+    }
+}
+
+.UnderBlock {
+    height: var(--header-height);
+}

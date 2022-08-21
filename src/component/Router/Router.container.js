@@ -1,17 +1,22 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import RouterComponent from './Router.component';
-import CurrencyDispatcher from '../../store/Currency/Currency.dispatcher';
-import CategoryDispatcher from '../../store/Category/Category.dispatcher';
+
+const CurrencyDispatcher = import('Store/Currency/Currency.dispatcher');
+const CategoryDispatcher = import('Store/Category/Category.dispatcher');
 
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
   initApp: () => {
-    new CategoryDispatcher().requestData(dispatch);
-    new CurrencyDispatcher().requestData(dispatch);
+    CategoryDispatcher.then(
+      ({ default: categoryDispatcher }) => categoryDispatcher.requestData(dispatch)
+    );
+    CurrencyDispatcher.then(
+      ({ default: currencyDispatcher }) => currencyDispatcher.requestData(dispatch)
+    );
   }
 })
 
@@ -22,11 +27,13 @@ class RouterContainer extends PureComponent {
   
   constructor(props) {
     super(props);
+
     this.init();
   }
 
   init() {
     const { initApp } = this.props;
+
     initApp();
   }
 

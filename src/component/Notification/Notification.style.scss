@@ -1,0 +1,35 @@
+.Notification {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--clr-white);
+    padding: 0.625rem;
+    font-family: var(--ff-primary);
+    max-width: 18.75rem;
+    animation: setNotification 2400ms ease;
+
+    &_Success {
+        background-color: var(--clr-success);
+    }
+
+    &_Failure {
+        background-color: var(--clr-failure);
+    }
+}
+
+@keyframes setNotification {
+    0% {
+      transform: translateY(-6.25rem);
+    }
+    
+    20% {
+      transform: translateY(5rem);
+    }
+
+    80% {
+        transform: translateY(5rem);
+    }
+
+    100% {
+        transform: translateY(-8.75rem);
+    }
+}

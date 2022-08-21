@@ -2,9 +2,11 @@ import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import { PRODUCT_QUERY, CATEGORY_QUERY } from './Query.config';
 
+export const GRAPHQL_URI = '/graphql';
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: 'http://localhost:4000/graphql',
+  uri: GRAPHQL_URI,
 });
 
 const setVariables = ({ identifier, type }) => {

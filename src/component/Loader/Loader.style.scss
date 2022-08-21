@@ -1,0 +1,19 @@
+$spinner-scale: 4;
+
+.Loader {
+    background-color: var(--clr-white);
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-Scale {
+        transform: scale($spinner-scale);
+    }
+}

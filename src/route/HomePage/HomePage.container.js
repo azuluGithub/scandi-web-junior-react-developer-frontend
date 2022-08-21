@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import HomePageComponent from './HomePage.component';
 import { HOME_PAGE, HOME_PAGE_ROUTE } from './HomePage.config';
-import { routeAction } from '../../store/Route/Route.action';
+import { routeAction } from 'Store/Route/Route.action';
 
 const mapStateToProps = (state) => ({});
 

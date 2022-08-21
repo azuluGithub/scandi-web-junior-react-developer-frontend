@@ -1,0 +1,36 @@
+$attribute-item-width: 3.9375rem;
+$attribute-item-height: 2.8125rem;
+
+$small-attribute-item-width: 1.5rem;
+$small-attribute-item-height: 1.5rem;
+
+.AttributeItem {
+    border: 1px solid var(--clr-text);
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $attribute-item-width;
+    height: $attribute-item-height;
+    font-family: var(--ff-basic);
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--clr-text-medium);
+
+    &_isSmall {
+        width: $small-attribute-item-width;
+        height: $small-attribute-item-height;
+        font-size: 0.5625rem;
+    }
+
+    &_Selected {
+        color: var(--clr-white);
+        background: var(--clr-text);
+    }
+
+    &_isSelectable {
+        cursor: pointer;
+    }
+}

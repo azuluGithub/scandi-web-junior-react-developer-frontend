@@ -1,0 +1,48 @@
+$swatch-attribute-height: 2rem;
+$swatch-attribute-width: 2rem;
+
+$selected-swatch-before-attribute-height: 2.25rem;
+$selected-swatch-before-attribute-width: 2.25rem;
+
+$small-swatch-seleted-width: 1.25rem;
+$small-swatch-seleted-height: 1.25rem;
+
+.AttributeSwatch {
+    position: relative;
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+    width: $swatch-attribute-width;
+    height: $swatch-attribute-height;
+    background-color: var(--swatch-background-color);
+
+    &_Selected::before {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: $selected-swatch-before-attribute-width;
+        height: $selected-swatch-before-attribute-height;
+        border: 1px solid var(--clr-primary);
+    }
+
+    &_isSmall {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &_isSmallSwatchSelected::before {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: $small-swatch-seleted-width;
+        height: $small-swatch-seleted-height;
+        border: 1px solid var(--clr-primary);
+    }
+
+    &_isSelectable {
+        cursor: pointer;
+    } 
+}

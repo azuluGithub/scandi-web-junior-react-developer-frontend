@@ -1,0 +1,10 @@
+:root {
+    --gallery-actions-height: 480px;
+}
+
+.ProductDisplayPage {
+    &-Wrapper {
+        display: flex;
+        max-height: var(--gallery-actions-height);
+    }
+}

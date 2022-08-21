@@ -1,0 +1,103 @@
+$additional-slider-width: 5rem;
+$additional-image-width: 5rem;
+$additional-image-height: 5rem;
+
+$gallery-slider-width: 34.8rem;
+
+.ProductGallery {
+    display: flex;
+    height: inherit;
+    overflow: hidden;
+
+    &-Slider {
+        position: relative;
+        overflow: hidden;
+        width: $gallery-slider-width;
+        height: var(--gallery-actions-height);
+    }
+
+    &-SliderWrapper {
+        width: calc(var(--gallery-items-length) * $gallery-slider-width);
+        display: flex;
+        transform: translateX(calc(var(--gallery-slider-x-position) * $gallery-slider-width * -1));
+        transition: all 300ms linear;
+    }
+
+    &-ImageSlide {
+        width: $gallery-slider-width;
+        height: var(--gallery-actions-height);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &-SliderSelectors {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        bottom: 3%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &-SliderSelector {
+        width: 0.3125rem;
+        height: 0.3125rem;
+        border-radius: 50%;
+        border: 1px solid var(--clr-text);
+        margin-right: 0.625rem;
+
+        &_isActive {
+            background-color: var(--clr-text);
+        }
+
+        &:hover {
+            cursor: pointer;
+            transition: all 300ms linear;
+            transform: scale(1.5);
+        }
+    }
+
+    &-AdditionalSlider {
+        overflow: hidden;
+        padding-top: 0.25rem;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        margin-right: 1.8rem;
+        width: $additional-slider-width;
+        height: calc(var(--gallery-actions-height) - 0.25rem);
+    }
+
+    &-AdditionalSliderWrapper {
+        transform: translateY(calc(var(--additional-slider-y-position) * $additional-image-height * -1));
+        transition: all 300ms linear;
+    }
+
+    &-AdditionalSlide {
+        width: $additional-image-width;
+        height: $additional-image-height;
+        margin-bottom: 1.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &-AdditionalImage {
+        width: $additional-image-width;
+        height: $additional-image-height;
+        object-fit: contain;
+        filter: opacity(0.5);
+        
+        &_isActive {
+            filter: opacity(1);
+            border: 1px solid var(--clr-grey-light);
+        }
+    }
+}

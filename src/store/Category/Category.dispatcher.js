@@ -1,9 +1,10 @@
-import CategoryQuery from '../../query/Category.query';
-import QueryDispatcher from '../../util/Request/QueryDispatcher';
+import CategoryQuery from 'Query/Category.query';
+import QueryDispatcher from 'Util/Request/QueryDispatcher';
+import { showNotificationAction } from 'Store/Notification/Notification.action';
+import {  NOTIFICATION_FAILURE_TYPE } from 'Component/Notification/Notification.config';
 import { categoryAction } from './Category.action';
 
 class CategoryDispatcher extends QueryDispatcher {
-
   prepareRequest() {
     return [
       CategoryQuery.getCategories(),
@@ -15,8 +16,13 @@ class CategoryDispatcher extends QueryDispatcher {
   }
 
   onError(dispatch, error) {
-    console.log('Error' , error.message);
+    const notification = {
+        notificationsId: `${Date.now()}${Math.floor(Math.random(567, 56754))}`,
+        type: NOTIFICATION_FAILURE_TYPE,
+        message: 'Failed to load Categories.',
+    }
+    dispatch(showNotificationAction(notification));
   }
 }
 
-export default CategoryDispatcher;
+export default new CategoryDispatcher();
