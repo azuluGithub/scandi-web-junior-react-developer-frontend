@@ -114,7 +114,7 @@ class CartItemComponent extends PureComponent {
     }
 
     renderActionDecrement() {
-        const { isSmall, updateCartHandler, item: { item_qty } } = this.props;
+        const { isSmall, updateCartHandler } = this.props;
 
         const buttonClass = isSmall && 'CartItem-ActionButton_isSmall';
 
