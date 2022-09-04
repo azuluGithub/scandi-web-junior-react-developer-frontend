@@ -3,15 +3,12 @@ import { connect } from 'react-redux';
 
 import { PopupType } from 'Type/Popup';
 import CartPopupComponent from './CartPopup.component';
-import { overlayAction } from 'Store/Overlay/Overlay.action';
 
 const mapStateToProps = (state) => ({
     popup: state.popupReducer.popup,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    overlayAction: (name) => dispatch(overlayAction(name)),
-});
+const mapDispatchToProps = (dispatch) => ({});
 
 class CartPopup extends PureComponent {
     static propTypes = {
@@ -24,23 +21,12 @@ class CartPopup extends PureComponent {
         return { popup };
     }
 
-    containerFunctions() {
-        return {
-            handleOverLay: this.handleOverLay.bind(this),
-        }
-    }
-
-    handleOverLay() {
-        const { overlayAction } = this.props;
-
-        overlayAction('');
-    }
+    
 
     renderComponent() {
         return (
             <CartPopupComponent
                 { ...this.containerProps() }
-                { ...this.containerFunctions() }
             />
         );
     }

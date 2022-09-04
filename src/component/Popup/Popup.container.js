@@ -12,6 +12,7 @@ import { CartItemType } from 'Type/ProductList';
 import PopupComponent from './Popup.component';
 import CartDispatcher from 'Store/Cart/Cart.dispatcher';
 import { showNotificationAction } from 'Store/Notification/Notification.action';
+import { overlayAction } from 'Store/Overlay/Overlay.action';
 
 const mapStateToProps = (state) => ({
     items: state.cart.items,
@@ -23,6 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
     hidePopupAction: () => dispatch(hidePopupAction()),
     cartDispatcher: (configs) => CartDispatcher.removeFromCart(dispatch, configs),
     showNotification: (notification) => dispatch(showNotificationAction(notification)),
+    overlayAction: (name) => dispatch(overlayAction(name)),
 });
 
 class Popup extends PureComponent {
@@ -33,11 +35,11 @@ class Popup extends PureComponent {
         itemsCount: PropTypes.number.isRequired,
         itemsTotal: PropTypes.number.isRequired,
         cartDispatcher: PropTypes.func.isRequired,
-        //showNotification: PropTypes.func.isRequired,
+        showNotification: PropTypes.func.isRequired,
     }
 
     state = {
-        itemName: ''
+        itemName: '',
     }
 
     componentDidMount() {
@@ -63,10 +65,17 @@ class Popup extends PureComponent {
         }
     }
 
+    handleOverLay() {
+        const { overlayAction } = this.props;
+
+        overlayAction('');
+    }
+
     handleCancel() {
         const { hidePopupAction } = this.props;
 
         hidePopupAction();
+        this.handleOverLay();
     }
 
     handleDelete() {
@@ -99,6 +108,7 @@ class Popup extends PureComponent {
         }, NOTIFICATION_TIME_OUT_DURATION);
 
         hidePopupAction();
+        this.handleOverLay();
     }
 
     renderComponent() {

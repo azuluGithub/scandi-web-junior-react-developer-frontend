@@ -1,5 +1,4 @@
 import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 
 import Popup from '../Popup';
 import { PopupType } from 'Type/Popup';
@@ -9,7 +8,6 @@ import './CartPopup.style.scss';
 class CartPopupComponent extends PureComponent {
     static propTypes = {
         popup: PopupType,
-        handleOverLay: PropTypes.func.isRequired,
     }
 
     renderPopup() {
@@ -19,13 +17,11 @@ class CartPopupComponent extends PureComponent {
     }
 
     renderCartPopupComponent() {
-        const { popup, handleOverLay } = this.props;
+        const { popup } = this.props;
 
         if (!popup) {
             return ;
         }
-
-        handleOverLay();
 
         return (
             <div className='CartPopup'>

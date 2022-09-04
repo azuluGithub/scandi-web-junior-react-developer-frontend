@@ -1,4 +1,6 @@
 $popup-width:  30rem;
+$popup-button-width: 15rem;
+$popup-button-height: 3rem;
 
 .Popup {
     width: $popup-width;
@@ -23,7 +25,8 @@ $popup-width:  30rem;
     }
 
     &-Cancel {
-        background-color: var(--clr-success) !important;
+        width: $popup-button-width;
+        height: $popup-button-height;
 
         &:hover {
             filter: opacity(0.5);
@@ -31,6 +34,8 @@ $popup-width:  30rem;
     }
 
     &-Delete {
+        width: $popup-button-width;
+        height: $popup-button-height;
         background-color: var(--clr-failure) !important;
 
         &:hover {
