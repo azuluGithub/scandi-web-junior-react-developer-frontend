@@ -1,0 +1,40 @@
+$popup-width:  30rem;
+
+.Popup {
+    width: $popup-width;
+    padding: 1.25rem;
+    background-color: var(--clr-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 0.125rem;
+
+    &-Message {
+        font-family: var(--ff-primary);
+        color: var(--clr-text);
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &-Buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-Cancel {
+        background-color: var(--clr-success) !important;
+
+        &:hover {
+            filter: opacity(0.5);
+        }
+    }
+
+    &-Delete {
+        background-color: var(--clr-failure) !important;
+
+        &:hover {
+            filter: opacity(0.5);
+        }
+    }
+}

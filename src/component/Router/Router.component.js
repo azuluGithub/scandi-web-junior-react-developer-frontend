@@ -5,6 +5,7 @@ import Loader from '../Loader';
 import Header from '../Header';
 import NotificationList from '../NotificationList';
 import { TOP_ELEMENTS, MAIN_ELEMENTS } from './Router.config';
+import CartPopup from 'Component/CartPopup';
 
 const NoMatch = lazy(() => import('Route/NoMatch'));
 const HomePage = lazy(() => import('Route/HomePage'));
@@ -17,6 +18,7 @@ class RouterComponent extends PureComponent {
   [TOP_ELEMENTS] = [
     { component: <Header key='header'/> },
     { component: <NotificationList key='notificationsList'/> },
+    { component: <CartPopup key='cartPopup'/> }
   ];
 
   [MAIN_ELEMENTS] = [

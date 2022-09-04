@@ -56,12 +56,6 @@ $small-cart-item: 320px;
         &_NoBorder {
             border: none;
         }
-    
-        &_MinValue {
-            color: var(--clr-grey-light);
-            border: 1px solid var(--clr-grey-light);
-            cursor: not-allowed;
-        }
     }
 
     &-ImageSlider {

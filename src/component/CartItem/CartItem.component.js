@@ -71,13 +71,13 @@ class CartItemComponent extends PureComponent {
     }
 
     renderProductContent() {
-        const { item: { product }, isSmall, currencyIsUSD } = this.props;
+        const { item: { product }, isSmall } = this.props;
 
         return (
             <ProductContent
                 product={product}
                 isSmall={isSmall}
-                currencyIsUSD={currencyIsUSD}
+                // currencyIsUSD={currencyIsUSD}
             />
         )
     }
@@ -116,13 +116,12 @@ class CartItemComponent extends PureComponent {
     renderActionDecrement() {
         const { isSmall, updateCartHandler, item: { item_qty } } = this.props;
 
-        const minValue = item_qty < 2 && 'CartItem-ActionButton_MinValue';
         const buttonClass = isSmall && 'CartItem-ActionButton_isSmall';
 
         return (
             <div
                 onClick={() => updateCartHandler(DECREASE_CART_TYPE)}
-                className={`CartItem-ActionButton ${buttonClass} ${minValue}`}
+                className={`CartItem-ActionButton ${buttonClass}`}
             >
                 &#45;
             </div>

@@ -8,6 +8,7 @@ import ProductDispatcher from 'Store/Product/Product.dispatcher';
 import { routeAction } from 'Store/Route/Route.action';
 import { ProductType } from 'Type/ProductList';
 import { CATEGORIES_ROUTE } from 'Component/MenuItem/MenuItem.config';
+import { overlayAction } from 'Store/Overlay/Overlay.action';
 
 const mapStateToProps = (state, ownProps) => ({
     category: ownProps.match.params.name,
@@ -18,6 +19,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
     requestProducts: (args) => ProductDispatcher.requestData(dispatch, args),
     routeAction: (route) => dispatch(routeAction(route)),
+    overlayAction: (name) => dispatch(overlayAction(name)),
 });
 
 class ProductListPage extends PureComponent {
@@ -38,6 +40,7 @@ class ProductListPage extends PureComponent {
     componentDidMount() {
         this.getProducts();
         this.setCurrentRoute();
+        this.handleOverLay();
     }
 
     componentDidUpdate(prevProps) {
@@ -45,6 +48,7 @@ class ProductListPage extends PureComponent {
 
         if (prevProps.category !== category) {
             this.getProducts();
+            this.handleOverLay();
         }
     }
 
@@ -68,6 +72,12 @@ class ProductListPage extends PureComponent {
         };
 
         routeAction(currentRoute);
+    }
+
+    handleOverLay() {
+        const { overlayAction } = this.props;
+
+        overlayAction('');
     }
 
     containerProps() {

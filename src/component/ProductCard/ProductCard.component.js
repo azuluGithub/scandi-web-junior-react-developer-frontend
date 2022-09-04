@@ -43,13 +43,15 @@ class ProductCardComponent extends PureComponent {
             selectedCurrency: { label, symbol }
         } = this.props;
 
+        const currency = convertCurrency(prices, label);
+
         return (
             <div className='ProductCard-Content'>
                 <p className="ProductCard-ContentTitle">
                     {brand} {name}
                 </p>
                 <p className="ProductCard-ContentPrice">
-                    {symbol}  { convertCurrency(prices, label) }
+                    {symbol}  {currency.toFixed(2)}
                 </p>
             </div>
         );

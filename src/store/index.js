@@ -5,6 +5,7 @@ import { routeReducer } from './Route/Route.reducer';
 import { productsReducer } from './Product/Product.reducer';
 import { categoriesReducer } from './Category/Category.reducer';
 import { notificationReducer } from './Notification/Notification.reducer';
+import { popupReducer } from './Popup/Popup.reducer';
 
 const reducersObject = {
   overlay: overlayReducer,
@@ -14,6 +15,7 @@ const reducersObject = {
   currenciesReducer,
   categoriesReducer,
   notificationReducer,
+  popupReducer,
 }
 
 class InjectStaticReducers {

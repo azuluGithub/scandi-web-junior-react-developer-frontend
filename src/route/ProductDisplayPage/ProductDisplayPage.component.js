@@ -48,21 +48,41 @@ class ProductDisplayPageComponent extends PureComponent {
         );
     }
 
-    renderProductWrapper() {
+    renderOutOfStock() {
+
         return (
-            <div className='ProductDisplayPage-Wrapper'>
-                { this.renderProductGallery() }
-                { this.renderProductActions() }
+            <div className='ProductDisplayPage-OutOfStock'>
+                <p className="ProductDisplayPage-OutOfStockText">
+                    OUT OF STOCK
+                </p>
             </div>
+        )
+    }
+
+    renderProductWrapper() {
+        const { product } = this.props;
+
+        if (!product) {
+            return ;
+        }
+
+        const { inStock } = product;
+        
+        return (
+            <ContainerWrapper>
+                <div className='ProductDisplayPage-Wrapper'>
+                    { this.renderProductGallery() }
+                    { this.renderProductActions() }
+                    { !inStock && this.renderOutOfStock() }
+                </div>
+            </ContainerWrapper>
         );
     }
 
     renderProductDisplayPage() {
         return (
             <main className='ProductDisplayPage'>
-                <ContainerWrapper>
-                    { this.renderProductWrapper() }
-                </ContainerWrapper>
+                { this.renderProductWrapper() }
             </main>
         );
     }

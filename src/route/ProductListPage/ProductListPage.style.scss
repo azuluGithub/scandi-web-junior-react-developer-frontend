@@ -20,24 +20,22 @@
         animation: skeleton ease 500ms infinite alternate;
     }
 
-    &-List {
-        display: grid;
-        gap: 3.125rem;
-        grid-template-columns: repeat(auto-fit, minmax(20.625rem, 1fr));
-        margin-bottom: 3.125rem;
-        transition: all 1s linear;
-    }
-
-    &-CardContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     &-CardContainerSkeleton {
-        height: 23.75rem;
+        margin-top: 1.25rem;
+        margin-right: 1.25rem;
+        margin-bottom: 1.25rem;
+        margin-left: 1.25rem;
+        width: var(--product-card-width);
+        height: var(--product-card-height);
         background-color: var(--clr-grey-light);
         animation: skeleton ease 500ms infinite alternate;
+    }
+
+    &-List {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 3.125rem;
+        transition: all 1s linear;
     }
 }
 

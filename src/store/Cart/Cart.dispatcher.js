@@ -1,6 +1,7 @@
 import { INCREASE_CART_TYPE } from 'Component/CartItem/CartItem.config';
 import { addToCartAction, updateCartAction } from './Cart.action';
 import { convertCurrency } from 'Util/Currency/Currency';
+import { showPopupAction } from 'Store/Popup/Popup.action';
 
 class CartDispatcher {
 
@@ -34,6 +35,25 @@ class CartDispatcher {
             }
         }
     }
+
+    removeFromCart(dispatch, configs) {
+        const { itemToRemove, items, itemsCount, itemsTotal } = configs;
+
+        const filteredItems = items.filter((item) => {
+            return item.item_id !== itemToRemove.item_id;
+        });
+
+        const { product: { prices } } = itemToRemove;
+
+        const filteredCart = {
+            itemsCount: itemsCount - 1,
+            itemsTotal: itemsTotal - convertCurrency(prices),
+            items: filteredItems,
+        }
+
+        dispatch(updateCartAction(filteredCart));
+    }
+
 
     _setSelectedAttributes(containerAttributes) {
         const attributes = { selectedAttributes: containerAttributes };
@@ -149,7 +169,13 @@ class CartDispatcher {
         const { itemInCart, items, itemsCount, itemsTotal } = configs;
 
         if (itemInCart.item_qty === 1) {
-            return ;
+            const { product: { name } } = itemInCart;
+            
+            const popup = {
+                item: itemInCart,
+                message: `Are you sure you want to remove ${name.toUpperCase()} from cart?`,
+            }
+            return dispatch(showPopupAction(popup));
         }
 
         const updatedItems = items.map((item) => {

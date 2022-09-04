@@ -9,7 +9,9 @@ $cart-overlay-max-height: 25rem;
     max-height: $cart-overlay-max-height;
     background-color: var(--clr-white);
     box-shadow: var(--box-shadow);
-    transform: translate(calc(-100% + 2.5rem));
+    z-index: 200;
+    pointer-events: all;
+    //transform: translate(calc(-100% + 2.5rem));
 
     &-NoItems {
         font-family: var(--ff-primary);

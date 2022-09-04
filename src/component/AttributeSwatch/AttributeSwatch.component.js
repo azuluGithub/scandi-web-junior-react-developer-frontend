@@ -31,11 +31,11 @@ class AttributeSwatch extends PureComponent {
         CSS.setVariable(swatchRef, 'swatch-background-color', value);
     }
 
-    renderSmallSelectable(swatchSmallClass, selectableClass) {
+    renderSmallSelectable(swatchSmallClass, selectableClass, swatchWhite) {
         const { name, swatchRef, elem: { value }, onHandleSelectedAttributes } = this.props;
 
         return (
-            <div className={`AttributeSwatch ${swatchSmallClass} ${selectableClass}`}
+            <div className={`AttributeSwatch ${swatchSmallClass} ${selectableClass} ${swatchWhite}`}
                 onClick={() => onHandleSelectedAttributes(value, name)}
                 ref={swatchRef}
             >
@@ -43,7 +43,7 @@ class AttributeSwatch extends PureComponent {
         );
     }
 
-    renderSelectedSelectable(selectableClass) {
+    renderSelectedSelectable(selectableClass, swatchWhite) {
         const { selectedAttributes, name, swatchRef, elem: { value }, onHandleSelectedAttributes } = this.props;
         
         const isSwatchSelected = selectedAttributes[name] === value && 'AttributeSwatch_Selected';
@@ -51,21 +51,21 @@ class AttributeSwatch extends PureComponent {
         return (
             <div
                 onClick={() => onHandleSelectedAttributes(value, name)}
-                className={`AttributeSwatch ${isSwatchSelected} ${selectableClass}`}
+                className={`AttributeSwatch ${isSwatchSelected} ${selectableClass} ${swatchWhite}`}
                 ref={swatchRef}
             >
             </div>
         );
     }
 
-    renderSmallSelectedSelectable(swatchSmallClass, selectableClass) {
+    renderSmallSelectedSelectable(swatchSmallClass, selectableClass, swatchWhite) {
         const { selectedAttributes, name, swatchRef, elem: { value }, onHandleSelectedAttributes } = this.props;
         const isSmallSwatchSelected = selectedAttributes[name] === value && 'AttributeSwatch_isSmallSwatchSelected';
 
         return (
             <div
                 onClick={() => onHandleSelectedAttributes(value, name)}
-                className={`AttributeSwatch ${swatchSmallClass} ${isSmallSwatchSelected} ${selectableClass}`}
+                className={`AttributeSwatch ${swatchSmallClass} ${isSmallSwatchSelected} ${selectableClass} ${swatchWhite}`}
                 ref={swatchRef}
             >
             </div>
@@ -73,20 +73,21 @@ class AttributeSwatch extends PureComponent {
     }
 
     renderAttributeSwatch() {
-        const { isSmall, selectedAttributes, isSelectable } = this.props;
+        const { isSmall, selectedAttributes, isSelectable, elem: { value } } = this.props;
 
         const swatchSmallClass = isSmall && 'AttributeSwatch_isSmall';
-        const selectableClass = isSelectable && 'AttributeItem_isSelectable';
+        const selectableClass = isSelectable && 'AttributeSwatch_isSelectable';
+        const swatchWhite = value === '#FFFFFF' && 'AttributeSwatch_isWhite';
 
         if (!selectedAttributes) {
-            return this.renderSmallSelectable(swatchSmallClass, selectableClass);
+            return this.renderSmallSelectable(swatchSmallClass, selectableClass, swatchWhite);
         }
 
         if (isSmall) {
-            return this.renderSmallSelectedSelectable(swatchSmallClass, selectableClass);
+            return this.renderSmallSelectedSelectable(swatchSmallClass, selectableClass, swatchWhite);
         }
 
-        return this.renderSelectedSelectable(selectableClass);
+        return this.renderSelectedSelectable(selectableClass, swatchWhite);
     }
 
     render() {

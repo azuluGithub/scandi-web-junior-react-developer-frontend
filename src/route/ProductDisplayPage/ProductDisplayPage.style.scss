@@ -7,4 +7,28 @@
         display: flex;
         max-height: var(--gallery-actions-height);
     }
+
+    &-OutOfStock {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--clr-white);
+        opacity: 0.6;
+    }
+
+    &-OutOfStockText {
+        font-family: var(--ff-primary);
+        font-style: normal;
+        text-transform: capitalize;
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 160%;
+        color: #3d3e3f;
+    }
 }

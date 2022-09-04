@@ -42,6 +42,10 @@ $small-swatch-seleted-height: 1.25rem;
         border: 1px solid var(--clr-primary);
     }
 
+    &_isWhite {
+        border: 1px solid var(--clr-text);
+    }
+
     &_isSelectable {
         cursor: pointer;
     } 

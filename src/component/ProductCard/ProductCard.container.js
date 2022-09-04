@@ -3,16 +3,21 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ProductCardComponent from './ProductCard.component';
-import { NOTIFICATION_FAILURE_TYPE } from '../Notification/Notification.config';
+import { NOTIFICATION_FAILURE_TYPE,  NOTIFICATION_SUCCESS_TYPE } from '../Notification/Notification.config';
 import { showNotificationAction } from 'Store/Notification/Notification.action';
-import { ProductType } from 'Type/ProductList';
+import { ProductType, CartItemType } from 'Type/ProductList';
 import { routeAction } from 'Store/Route/Route.action';
+import CartDispatcher from 'Store/Cart/Cart.dispatcher';
 
 const mapStateToProps = (state) => ({
+    items: state.cart.items,
+    itemsCount: state.cart.itemsCount,
+    itemsTotal: state.cart.itemsTotal,
     selectedCurrency: state.currenciesReducer.selectedCurrency,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+    cartDispatcher: (configs) => CartDispatcher.addToCart(dispatch, configs),
     routeAction: (route) => dispatch(routeAction(route)),
     showNotification: (notification) => dispatch(showNotificationAction(notification)),
 });
@@ -23,6 +28,10 @@ class ProductCard extends PureComponent {
         selectedCurrency: PropTypes.object,
         showNotification: PropTypes.func,
         routeAction: PropTypes.func,
+        items: PropTypes.arrayOf(CartItemType).isRequired,
+        itemsCount: PropTypes.number.isRequired,
+        itemsTotal: PropTypes.number.isRequired,
+        cartDispatcher: PropTypes.func.isRequired,
     }
 
     static defaultProps = {
@@ -50,6 +59,33 @@ class ProductCard extends PureComponent {
         }
     }
 
+    state = {
+        containerAttributes: null,
+    }
+
+    setContainerAttributes() {
+        const { product: { attributes } } = this.props;
+
+        if (!attributes.length) {
+            return ;
+        }
+        
+        const newAttributes = {};
+        
+        attributes.forEach((attribute) => {
+            const { name, items } = attribute;
+            const { value } = items[0];
+
+            newAttributes[name] = value;
+        });
+
+        this.setState({ containerAttributes: newAttributes });
+    }
+
+    componentDidMount() {
+        this.setContainerAttributes();
+    }
+
     productNotInStock() {
         const { showNotification } = this.props;
 
@@ -61,14 +97,28 @@ class ProductCard extends PureComponent {
         showNotification(notification);
     }
 
-    viewProduct() {
-        const { showNotification } = this.props;
+    handleProduct() {
+        const { 
+            items,
+            itemsCount,
+            itemsTotal,
+            product,
+            cartDispatcher,
+            showNotification,
+        } = this.props;
+
+        const { containerAttributes } = this.state;
+
+        const configs = { product, items, itemsCount, itemsTotal, containerAttributes };
+        
+        cartDispatcher(configs);
 
         const notification = {
             notificationsId: `${Date.now()}${Math.floor(Math.random(567, 56754))}`,
-            type: NOTIFICATION_FAILURE_TYPE,
-            message: 'Please view product to select attributes e.g size and color',
+            type: NOTIFICATION_SUCCESS_TYPE,
+            message: `${product.name.toUpperCase()} has been added to cart`,
         }
+
         showNotification(notification);
     }
 
@@ -79,7 +129,7 @@ class ProductCard extends PureComponent {
             return this.productNotInStock();
         }
 
-        this.viewProduct();
+        this.handleProduct();
     }
 
     renderComponent() {

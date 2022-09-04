@@ -54,11 +54,10 @@ class ProductListPageComponent extends PureComponent {
         const { id } = product;
 
         return (
-            <div className='ProductListPage-CardContainer' key={id}>
-                <ProductCard
-                    product={product}
-                />
-            </div>
+            <ProductCard
+                key={id}
+                product={product}
+            />
         );
     }
 

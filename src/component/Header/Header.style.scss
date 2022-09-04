@@ -30,7 +30,23 @@
         width: 100%;
         z-index: 15;
         height: calc(100vh - var(--header-height));
-        background-color: rgba($color: #000000, $alpha: 0.2);
+        background-color: rgba(57, 55, 72, 0.22);
+    }
+
+    &-OverlayContainer {
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        position: fixed;
+        z-index: 20;
+        pointer-events: none;
+        top: var(--header-height);
+    }
+
+    &-OverlayContainerWrapper {
+        margin: auto;
+        width: var(--container-width);
+        display: flex;
+        justify-content: flex-end;
     }
 
     &-NavItems {
@@ -74,11 +90,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    &-CartOverlay {
-        position: absolute;
-        top: 100%;
     }
 }
 

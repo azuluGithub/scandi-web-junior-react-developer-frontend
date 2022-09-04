@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
 import HomePageComponent from './HomePage.component';
 import { HOME_PAGE, HOME_PAGE_ROUTE } from './HomePage.config';
 import { routeAction } from 'Store/Route/Route.action';
+import { overlayAction } from 'Store/Overlay/Overlay.action';
 
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
+    overlayAction: (name) => dispatch(overlayAction(name)),
     routeAction: (route) => dispatch(routeAction(route)),
 });
 
@@ -19,6 +21,7 @@ class HomePage extends PureComponent {
 
     componentDidMount() {
         this.setCurrentRoute();
+        this.handleOverLay();
     }
 
     setCurrentRoute() {
@@ -28,6 +31,12 @@ class HomePage extends PureComponent {
             path: HOME_PAGE_ROUTE,
         };
         routeAction(currentRoute);
+    }
+
+    handleOverLay() {
+        const { overlayAction } = this.props;
+
+        overlayAction('');
     }
 
     renderComponent() {

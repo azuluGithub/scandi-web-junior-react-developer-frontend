@@ -66,6 +66,7 @@ class ProductContentComponent extends PureComponent {
     renderPrice() {
         const { isSmall } = this.props;
         
+        const currency = this.getPrice();
         const priceClass = isSmall && 'ProductContent-Price_isSmall';
 
         return (
@@ -73,7 +74,7 @@ class ProductContentComponent extends PureComponent {
                 <span className='ProductContent-PriceSymbol'>
                     { this.getLabel() }
                 </span>
-                <span>{ this.getPrice() }</span>
+                <span>{ currency.toFixed(2) }</span>
             </div>
         );
     }

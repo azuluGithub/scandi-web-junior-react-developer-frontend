@@ -69,20 +69,6 @@ class HeaderComponent extends PureComponent {
         );
     }
 
-    isCartOverlayOpen() {
-        const { currentOverlay } = this.props;
-
-        return currentOverlay === CART_OVERLAY;
-    }
-
-    renderCartOverlay() {
-        return (
-            <div className='Header-CartOverlay'>
-                <CartOverlay />
-            </div>
-        );
-    }
-
     renderCountItem(count) {
         return (
             <div className='Header-CartCount'>
@@ -121,12 +107,11 @@ class HeaderComponent extends PureComponent {
         return (
             <div className='Header-Cart' key='cart'>
                 { this.renderCartButton() }
-                { this.isCartOverlayOpen() && this.renderCartOverlay() }
             </div>
         );
     }
 
-    renderOverlayClose() {
+    renderClickableWrapper() {
         const { handleOverLay } = this.props;
 
         return (
@@ -139,15 +124,41 @@ class HeaderComponent extends PureComponent {
         );
     }
 
+    renderOverlayContainer() {
+        return (
+            <div className='Header-OverlayContainer'>
+                <div className='Header-OverlayContainerWrapper'>
+                    <CartOverlay />
+                </div>
+            </div>
+        );
+    }
 
-    renderOverlay() {
+    renderOverlayIsOpen() {
+        return (
+            <>
+                { this.renderClickableWrapper() }
+                { this.renderOverlayContainer() }
+            </>
+        )
+    }
+
+    isCartOverlayOpen() {
         const { currentOverlay } = this.props;
 
-        if (!currentOverlay.length) {
-            return <div key='overlay'></div>
+        return currentOverlay === CART_OVERLAY;
+    }
+
+    renderOverlay() {
+        if (!this.isCartOverlayOpen()) {
+            return <div key='overlay'></div>;
         }
 
-        return this.renderOverlayClose();
+        return (
+            <div key='overlay'>
+                { this.renderOverlayIsOpen() }
+            </div>
+        );
     }
 
     renderMenu() {
